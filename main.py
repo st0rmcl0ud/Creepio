@@ -54,6 +54,73 @@ async def on_guild_join(guild):
     with open('jsons/prefixes.json', 'w') as file:
         json.dump(prefixes, file, indent=4)
 
+@client.event
+async def on_message(message):
+    if message.author == client.user: 
+      
+      #dont respond to a message sent by the bot. 
+        return
+
+    if(message.content.startswith('!sleep')):
+
+      resp = "YOU PROMISED ME FLESH!"
+      await message.channel.send(resp)
+
+    if(message.content.startswith('!awaken')):
+      
+      resp = "WHY DO YOU AWAKEN ME WITHOUT SKIN!"
+      await message.channel.send(resp)
+
+    if(message.content.startswith ('!forceskip')):
+
+      resp = "WHAT THE HELL FARTOO?"
+
+      await message.channel.send(resp)
+
+    if(message.content.startswith('!jediparty')):
+      
+      resp = "LOOK MASTER, GIRLS!"
+      await message.channel.send(resp)
+
+
+
+
+    if client.user.mentioned_in(message) and 'what time is it?' in message.content:
+            await message.channel.send("IT'S BABY TIME!")
+        
+    elif client.user.mentioned_in(message):
+            await message.channel.send("I WILL WEAR YOUR FACE!")
+    
+
+    word_list = ['creepio', 'shit', 'fuck', 'fucking', 'bitch', 'shed', 'fairway', 'cunt']
+    messageContent = message.content
+    
+    if len(messageContent) > 0:
+      for word in word_list:
+        if word in messageContent:
+
+          await message.channel.send (message.author.mention + "YOU ARE THE SINGLE GREATEST DISAPPOINTMENT OF MY ENTIRE LIFE!")
+
+    if '!pause' in messageContent:
+      await message.channel.send("Don't Ruin My Flow," + message.author.mention)
+
+    if 'tinder' in messageContent:
+      await message.channel.send("BEHOLD! THE SINGULARITY ENGINE!!!")
+    
+    name_list = ['Kiwi', 'kiwi', 'katie', 'Katie']
+    messageContent = message.content
+
+    if len(messageContent) > 0:
+      for name in name_list:
+        if name in messageContent:
+          
+          await message.channel.send("NOSEBLASTING!? YOU'RE CRAZY!")
+
+    if 'the maine' in messageContent:
+      
+      resp = (message.author.mention + "YOU WANT ME TO FEEL THE PAIN, YOU WANT ME TO UNDERSTAND IT SO THAT I MAY SHOW OTHERS!")
+      await message.channel.send(resp)         
+        
 
 @client.event
 async def on_guild_remove(guild):
