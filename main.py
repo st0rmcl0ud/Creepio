@@ -13,7 +13,7 @@ keepBotAlive.awake()
 
 #declarations 
 
-with open('token.txt', 'r') as DISCORD_TOKEN:
+with open(${{secret.TOKEN}}', 'r') as DISCORD_TOKEN:
     token = DISCORD_TOKEN.read()
 intents = discord.Intents.default()
 intents.members = True
