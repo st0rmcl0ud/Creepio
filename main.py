@@ -8,6 +8,7 @@ import logging
 import json
 from other import CommonBotFunctions
 
+keepBotAlive.awake()
 
 
 #declarations 
